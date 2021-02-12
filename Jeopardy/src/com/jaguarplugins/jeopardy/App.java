@@ -15,6 +15,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -25,6 +26,8 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
+		Image image = new Image("com/jaguarplugins/jeopardy/gfx/logo.png");
 		
 		Canvas canvas = new Canvas(5000,5000);
 		GraphicsContext g = canvas.getGraphicsContext2D();
@@ -42,7 +45,8 @@ public class App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.setWidth(1500);
 		primaryStage.setHeight(800);
-		primaryStage.setTitle("Jeopardy");
+		primaryStage.setTitle("Jeopardy Quiz");
+		primaryStage.getIcons().add(image);
 		primaryStage.setOnCloseRequest(e -> {
 			try {
 				QuestionState.getJTimer().stopThread();
