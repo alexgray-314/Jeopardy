@@ -3,6 +3,8 @@ package com.jaguarplugins.jeopardy.questions;
 import com.jaguarplugins.jeopardy.util.Handler;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 
 public class Question {
@@ -26,7 +28,12 @@ public class Question {
 		if (url.equalsIgnoreCase("none") || url.equalsIgnoreCase("null")) {
 			this.image = null;
 		} else {
-			this.image = new Image(url);
+			try {
+				this.image = new Image(url);
+			} catch (Exception e) {			
+				Alert a = new Alert(AlertType.ERROR, url + " could not be found.");
+				a.showAndWait();
+			}
 		}
 		
 	}
