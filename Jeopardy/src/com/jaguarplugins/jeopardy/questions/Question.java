@@ -31,7 +31,7 @@ public class Question {
 			try {
 				this.image = new Image(url);
 			} catch (Exception e) {			
-				Alert a = new Alert(AlertType.ERROR, url + " could not be found.");
+				Alert a = new Alert(AlertType.WARNING, url + " could not be found.");
 				a.showAndWait();
 			}
 		}

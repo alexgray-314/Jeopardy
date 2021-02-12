@@ -37,7 +37,8 @@ public class JFile {
 		}
 		
 		Question[][] contents = new Question[5][5];
-
+		int currentLine = 1;
+		
 		try {
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
@@ -45,23 +46,34 @@ public class JFile {
 //			READING FILE
 			String line = reader.readLine();
 			String cat = line.split("=")[1];
-			line = reader.readLine();
+			line = reader.readLine(); currentLine++;
 			int category = 0, money = 0;
 			while (line != null) {
 				if (money >= 5 || line.contains("-=")) {
 					cat = line.split("=")[1];
 					category++;
 					money = 0;
-					line = reader.readLine();
+					line = reader.readLine(); currentLine++;
 				}
 				String[] data = line.split("~");
 				contents[category][money] = new Question(cat, data[0], data[1], data[2], category, money + 1);
 				money++;
-				line = reader.readLine();
+				line = reader.readLine(); currentLine++;
 			}
 
 			reader.close();
-
+			
+			for (Question[] cats : contents) {
+				for (Question q : cats) {
+					if (q == null) {
+						Alert a = new Alert(AlertType.ERROR, "Invalid formatting of questions.txt. Please visit "
+								+ "https://github.com/JaguarPlugins/Jeopardy/wiki/Question-setup for instructions on how to set out questions properly.");
+						a.showAndWait();
+						System.exit(0);
+					}
+				}
+			}
+			
 			return contents;
 			
 		} catch (FileNotFoundException e) {
@@ -75,6 +87,12 @@ public class JFile {
 		} catch (IOException e) {
 			Alert a = new Alert(AlertType.ERROR, "I/O exception");
 			a.showAndWait();
+			return null;
+		} catch (Exception e ) {
+			Alert a = new Alert(AlertType.ERROR, "Error on line " + currentLine + " of questions.txt. Please visit "
+					+ "https://github.com/JaguarPlugins/Jeopardy/wiki/Question-setup for instructions on how to set out questions properly.");
+			a.showAndWait();
+			System.exit(0);
 			return null;
 		}
 		
@@ -113,6 +131,12 @@ public class JFile {
 
 			reader.close();
 
+			if (contents.size() <= 0) {
+				Alert a  = new Alert(AlertType.ERROR, "teams.txt is empty. Please add your team names to the file, leaving no blank lines, and try again.");
+				a.showAndWait();
+				System.exit(0);
+			}
+			
 			return contents.toArray(new Team[contents.size()]);
 			
 		} catch (FileNotFoundException e) {
