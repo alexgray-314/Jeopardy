@@ -132,7 +132,7 @@ public class JFile {
 			reader.close();
 
 			if (contents.size() <= 0) {
-				Alert a  = new Alert(AlertType.ERROR, "teams.txt is empty. Please add your team names to the file, leaving no blank lines, and try again.");
+				Alert a  = new Alert(AlertType.ERROR, "teams.txt is empty. Please write your team names on each line of the file, leaving no blank lines, and try again.");
 				a.showAndWait();
 				System.exit(0);
 			}
