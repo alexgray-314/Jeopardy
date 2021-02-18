@@ -56,6 +56,10 @@ public class AdjustState extends State {
 		g.strokeRoundRect(handler.getHGrid(0) + x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
 		g.fillText("Esc", handler.getHGrid(0) + x, y);
 		
+		g.setFont(new Font("calibri", handler.getGridWidth()/16));
+		g.setTextAlign(TextAlignment.LEFT);
+		g.fillText("Back to questions", handler.getHGrid(0) + 1.5*x, y);
+		
 	}
 
 }
