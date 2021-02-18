@@ -38,9 +38,9 @@ public class App extends Application {
 		Handler handler = new Handler(primaryStage, JFile.load(), JFile.loadTeams());
 		
 		State board = new BoardState(g, handler);
-		handler.setupStates(board, board);
 		MouseHandler mouse = new MouseHandler(handler);
 		KeyHandler keys = new KeyHandler(handler);
+		handler.setup(board, board, mouse);
 		
 		primaryStage.setScene(scene);
 		primaryStage.setWidth(1500);

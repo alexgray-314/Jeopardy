@@ -66,6 +66,19 @@ public class BoardState extends State {
 		g.setFill(Color.BLACK);
 		g.fillText(handler.getCurrentTeam().getName(), handler.getWidth()/2, handler.getVGrid(6) + handler.getGridHeight()/4);
 		
+//		Controls help
+		double bWidth = handler.getGridWidth()/8;
+		double y = handler.getVGrid(6) + (handler.getHeight() - handler.getVGrid(6))/2;
+		double x = handler.getGridWidth()/6;
+		
+		g.setFill(Color.DIMGRAY);
+		g.setStroke(Color.DIMGRAY);
+		g.setFont(new Font("calibri", handler.getGridWidth()/12));
+		g.strokeRoundRect(handler.getHGrid(0) + x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
+		g.strokeRoundRect(handler.getHGrid(0) + 2*x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
+		g.fillText("A", handler.getHGrid(0) + x, y);
+		g.fillText("S", handler.getHGrid(0) + 2*x, y);
+		
 	}
 
 }

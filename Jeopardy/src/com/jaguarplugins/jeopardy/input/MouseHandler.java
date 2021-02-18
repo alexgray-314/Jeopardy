@@ -31,42 +31,7 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 
 			if (e.getEventType().equals(MouseEvent.MOUSE_MOVED)) {
 
-				pointX = -1;
-				pointY = -1;
-
-				if (e.getSceneX() <= handler.getHGrid(5) && e.getSceneY() <= handler.getVGrid(6)) {
-
-					for (Question[] category : handler.getQuestions()) {
-						for(Question question : category) {
-
-							if (e.getSceneX() >= handler.getHGrid(question.getX()) && e.getSceneY() >= handler.getVGrid(question.getY())) {
-
-								pointX = question.getX();
-								pointY = question.getY() - 1;
-
-							}		
-						}
-					}
-				}
-
-				if (lastX != -1 && lastY != -1) {
-
-					handler.getQuestions()[lastX][lastY].setHover(false);
-					handler.getCurrentState().render();
-					lastX = -1;
-					lastY = -1;
-
-				}
-
-				if (pointX != -1 && pointY != -1) {
-
-					lastX = pointX;
-					lastY = pointY;
-
-					handler.getQuestions()[pointX][pointY].setHover(true);
-					handler.getCurrentState().render();
-
-				}
+				moveMouse(e.getSceneX(), e.getSceneY());
 
 			}
 
@@ -76,7 +41,7 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 
 					if (!handler.getQuestions()[pointX][pointY].isAnswered()) {
 
-						handler.getQuestions()[pointX][pointY].setAnswered(true);
+						
 						handler.setCurrentState(new QuestionState(handler.getCurrentState().getG(), handler, handler.getQuestions()[pointX][pointY], handler.getQuestions()[pointX][pointY].getY()*10));
 						handler.getCurrentState().render();
 					}
@@ -89,6 +54,7 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 			
 			if (e.getEventType().equals(MouseEvent.MOUSE_CLICKED)) {
 				
+				handler.getQuestions()[pointX][pointY].setAnswered(true);
 				handler.setCurrentState(new AnswerState(handler.getCurrentState().getG(), handler, handler.getCurrentState().getQuestion(), handler.getCurrentState().getWinnings()));
 				handler.getCurrentState().render();
 				QuestionState.getJTimer().stopThread();
@@ -101,6 +67,7 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 
 				if (handler.getNextButton().intersects(e.getSceneX(), e.getSceneY(), 1, 1)) {
 					AnswerState.moveOn(handler);
+					moveMouse(e.getSceneX(), e.getSceneY());
 				} else {
 					
 					for (Button b : handler.getButtons()) {
@@ -139,6 +106,47 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 			
 		}
 		
+	}
+	
+	public void moveMouse(double sceneX, double sceneY) {
+		
+		pointX = -1;
+		pointY = -1;
+
+		if (sceneX <= handler.getHGrid(5) && sceneY <= handler.getVGrid(6)) {
+
+			for (Question[] category : handler.getQuestions()) {
+				for(Question question : category) {
+
+					if (sceneX >= handler.getHGrid(question.getX()) && sceneY >= handler.getVGrid(question.getY())) {
+
+						pointX = question.getX();
+						pointY = question.getY() - 1;
+
+					}		
+				}
+			}
+		}
+
+		if (lastX != -1 && lastY != -1) {
+
+			handler.getQuestions()[lastX][lastY].setHover(false);
+			handler.getCurrentState().render();
+			lastX = -1;
+			lastY = -1;
+
+		}
+
+		if (pointX != -1 && pointY != -1) {
+
+			lastX = pointX;
+			lastY = pointY;
+
+			handler.getQuestions()[pointX][pointY].setHover(true);
+			handler.getCurrentState().render();
+			
+		}
+	
 	}
 
 }

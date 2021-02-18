@@ -30,6 +30,7 @@ public class AdjustState extends State {
 
 	@Override
 	public void render() {
+		
 		g.clearRect(0, 0, handler.getWidth(), handler.getHeight());
 		g.setTextAlign(TextAlignment.RIGHT);
 		g.setTextBaseline(VPos.CENTER);
@@ -44,6 +45,16 @@ public class AdjustState extends State {
 			b.render(g);
 		}
 		
+//		Controls help
+		double bWidth = handler.getGridWidth()/8;
+		double y = handler.getVGrid(6) + (handler.getHeight() - handler.getVGrid(6))/2;
+		double x = handler.getGridWidth()/6;
+		
+		g.setFill(Color.DIMGRAY);
+		g.setStroke(Color.DIMGRAY);
+		g.setFont(new Font("calibri", handler.getGridWidth()/12));
+		g.strokeRoundRect(handler.getHGrid(0) + x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
+		g.fillText("Esc", handler.getHGrid(0) + x, y);
 		
 	}
 

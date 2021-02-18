@@ -59,6 +59,8 @@ public class ScoreButton {
 	}
 
 	public void click(double xPos, double yPos) {
+		
+		hover = false;
 		if (r.intersects(xPos, yPos, 1, 1)) {
 
 			team.changeScore(scoreChange);
@@ -66,9 +68,9 @@ public class ScoreButton {
 				System.out.println(t.getName() + ": " + t.getScore());
 			}
 			System.out.println();
-			hover = false;
 
 		}
+		
 	}
 	
 	public void startHover(double xPos, double yPos) {

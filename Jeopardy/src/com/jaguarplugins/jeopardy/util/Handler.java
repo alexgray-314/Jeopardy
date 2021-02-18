@@ -2,6 +2,7 @@ package com.jaguarplugins.jeopardy.util;
 
 import java.util.ArrayList;
 
+import com.jaguarplugins.jeopardy.input.MouseHandler;
 import com.jaguarplugins.jeopardy.input.button.Button;
 import com.jaguarplugins.jeopardy.input.button.ScoreButton;
 import com.jaguarplugins.jeopardy.questions.Question;
@@ -19,6 +20,7 @@ public class Handler {
 	private Team[] teams;
 	private int currentTeam = 0;
 	private ArrayList<ScoreButton> scoreButtons;
+	private MouseHandler mouseHandler; 
 	
 	private Button[] buttons;
 	private Rectangle nextButton;
@@ -32,9 +34,10 @@ public class Handler {
 		
 	}
 	
-	public void setupStates(State currentState, State boardState) {
+	public void setup(State currentState, State boardState, MouseHandler mouseHandler) {
 		this.currentState = currentState;
 		this.boardState = boardState;
+		this.mouseHandler = mouseHandler;
 	}
 	
 //	TEAM
@@ -148,6 +151,10 @@ public class Handler {
 
 	public void setScoreButtons(ArrayList<ScoreButton> scoreButtons) {
 		this.scoreButtons = scoreButtons;
+	}
+
+	public MouseHandler getMouseHandler() {
+		return mouseHandler;
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.jaguarplugins.jeopardy.input;
 
 import com.jaguarplugins.jeopardy.states.AdjustState;
 import com.jaguarplugins.jeopardy.states.BoardState;
+import com.jaguarplugins.jeopardy.states.QuestionState;
 import com.jaguarplugins.jeopardy.states.ResultState;
 import com.jaguarplugins.jeopardy.util.Handler;
 
@@ -27,11 +28,6 @@ public class KeyHandler implements EventHandler<KeyEvent> {
 				handler.setCurrentState(new ResultState(handler.getCurrentState().getG(), handler));
 				handler.getCurrentState().render();
 
-			} else if (handler.getCurrentState() instanceof ResultState) {
-				
-				handler.setCurrentState(handler.getBoardState());
-				handler.getCurrentState().render();
-				
 			}
 			
 		} 
@@ -42,11 +38,22 @@ public class KeyHandler implements EventHandler<KeyEvent> {
 				
 				handler.setCurrentState(new AdjustState(handler.getCurrentState().getG(), handler));
 				handler.getCurrentState().render();
-					
-			} else if (handler.getCurrentState() instanceof AdjustState) {
+				
+			}
+			
+		}
+		
+		if (e.getCode().equals(KeyCode.ESCAPE)) {
+			
+			if (!(handler.getCurrentState() instanceof BoardState)) {
+				
+				try {
+				QuestionState.getJTimer().stopThread();
+				} catch (NullPointerException ex) {}
 				
 				handler.setCurrentState(handler.getBoardState());
 				handler.getCurrentState().render();
+				handler.getMouseHandler().moveMouse(-1.0, -1.0);
 				
 			}
 			
