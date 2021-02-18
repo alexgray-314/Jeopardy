@@ -124,8 +124,18 @@ public class MouseHandler implements EventHandler<MouseEvent> {
 				for (ScoreButton b : handler.getScoreButtons()) {
 					b.click(e.getSceneX(), e.getSceneY());
 				}
+				handler.getCurrentState().render();
 				
 			} 
+			
+			if (e.getEventType().equals(MouseEvent.MOUSE_PRESSED)) {
+				
+				for (ScoreButton b : handler.getScoreButtons()) {
+					b.startHover(e.getSceneX(), e.getSceneY());
+				}
+				handler.getCurrentState().render();
+				
+			}
 			
 		}
 		

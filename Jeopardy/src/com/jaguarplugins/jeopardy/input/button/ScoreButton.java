@@ -19,6 +19,7 @@ public class ScoreButton {
 	private Team team;
 	private int x, y;
 	private int scoreChange;
+	private boolean hover = false;
 	
 	public ScoreButton(Handler handler, Team team, int x, int y, int scoreChange) {
 		
@@ -65,7 +66,14 @@ public class ScoreButton {
 				System.out.println(t.getName() + ": " + t.getScore());
 			}
 			System.out.println();
+			hover = false;
 
+		}
+	}
+	
+	public void startHover(double xPos, double yPos) {
+		if (r.intersects(xPos, yPos, 1, 1)) {
+			hover = true;
 		}
 	}
 	
@@ -78,6 +86,9 @@ public class ScoreButton {
 			color = Color.RED;
 		}
 		
+		if (hover) {
+			color = color.darker();
+		}
 		return color;
 		
 	}

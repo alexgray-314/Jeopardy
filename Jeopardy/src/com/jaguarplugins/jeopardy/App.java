@@ -67,6 +67,7 @@ public class App extends Application {
 		scene.widthProperty().addListener(resize);
 		scene.setOnMouseMoved(mouse);
 		scene.setOnMouseClicked(mouse);
+		scene.setOnMousePressed(mouse);
 		scene.setOnKeyReleased(keys);
 		
 //		SETUPS
