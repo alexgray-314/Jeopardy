@@ -29,7 +29,7 @@ public class App extends Application {
 		
 		Image image = new Image("com/jaguarplugins/jeopardy/gfx/logo.png");
 		
-		Canvas canvas = new Canvas(5000,5000);
+		Canvas canvas = new Canvas(2500,1800);
 		GraphicsContext g = canvas.getGraphicsContext2D();
 		
 		Group root = new Group(canvas);
