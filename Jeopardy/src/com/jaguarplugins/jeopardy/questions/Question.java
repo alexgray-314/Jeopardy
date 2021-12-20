@@ -1,5 +1,7 @@
 package com.jaguarplugins.jeopardy.questions;
 
+import java.util.ArrayList;
+
 import com.jaguarplugins.jeopardy.util.Handler;
 
 import javafx.scene.canvas.GraphicsContext;
@@ -11,6 +13,7 @@ public class Question {
 	
 	
 	private String question, answer, category;
+	private String[] formattedQuestion;
 	private Image image;
 	private boolean answered = false;
 	
@@ -36,6 +39,8 @@ public class Question {
 			}
 		}
 		
+		formattedQuestion = seperateLines(question, 50);
+		
 	}
 	
 	public void render(Handler handler, GraphicsContext g) {
@@ -51,6 +56,39 @@ public class Question {
 		
 	}
 
+	private String[] seperateLines(String text, int maxWidth) {
+		
+		String[] seperatedWords = text.split(" ");
+		ArrayList<String> lines = new ArrayList<String>();
+		
+		String currentLine = "";
+		int characters = 0;
+		for (String word : seperatedWords) {
+			characters += word.length();
+			currentLine += word;
+			if (characters >= maxWidth) {
+				lines.add(currentLine);
+				currentLine = "";
+				characters = 0;
+				continue;
+			} 
+			if (word != seperatedWords[seperatedWords.length - 1]) {
+				currentLine += " ";
+			} else {
+				lines.add(currentLine);
+			}
+			
+		}
+		
+		String[] output = new String[lines.size()];
+		for (int i = 0; i < lines.size(); i++) {
+			output[i] = lines.get(i);
+		}
+		
+		return output;
+		
+	}
+	
 //	GETTERS AND SETTERS
 	public String getQuestion() {
 		return question;
