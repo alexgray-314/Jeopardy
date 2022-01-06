@@ -46,13 +46,26 @@ public class Question {
 	public void render(Handler handler, GraphicsContext g) {
 		
 		double y = handler.getHeight()/2;
+		double fontHeight = g.getFont().getSize() + 4;
+		
 		if (image != null) {
-			y += handler.getHeight()/4;
+			
+			y += handler.getHeight()/4 + fontHeight / 2;
 			double imgWidth = (image.getWidth()/image.getHeight())*(4.5*handler.getGridHeight());
 			g.drawImage(image, handler.getWidth()/2 - imgWidth/2, handler.getVGrid(0), imgWidth, 4.5*handler.getGridHeight());
+		
 		}
 		
-		g.fillText(question, handler.getWidth()/2, y, handler.getWidth());
+		if (formattedQuestion.length % 2 == 0) {
+			y -= fontHeight/2;
+			y -= fontHeight * (formattedQuestion.length/2 - 1);
+		} else {
+			y -= fontHeight * ((formattedQuestion.length - 1)/2);
+		}
+		
+		for (int i = 0; i < formattedQuestion.length; i++) {
+			g.fillText(formattedQuestion[i], handler.getWidth()/2, y + i*fontHeight);
+		}
 		
 	}
 
@@ -128,6 +141,10 @@ public class Question {
 
 	public void setAnswered(boolean answered) {
 		this.answered = answered;
+	}
+
+	public String[] getFormattedQuestion() {
+		return formattedQuestion;
 	}
 
 }

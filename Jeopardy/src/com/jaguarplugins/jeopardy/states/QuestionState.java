@@ -30,8 +30,13 @@ public class QuestionState extends State {
 		g.clearRect(0, 0, handler.getWidth(), handler.getHeight());
 		g.setTextAlign(TextAlignment.CENTER);
 		g.setTextBaseline(VPos.CENTER);
-		g.setFont(new Font("calibri", handler.getGridWidth()/5));
 		g.setFill(Color.BLACK);
+		
+		double fontSize = handler.getGridWidth()/5;
+		if (question.getImage() != null && question.getFormattedQuestion().length > 2) {
+			fontSize = fontSize * 2/question.getFormattedQuestion().length;
+		}
+		g.setFont(new Font("calibri", fontSize));
 		
 		question.render(handler, g);
 		t.render(g);

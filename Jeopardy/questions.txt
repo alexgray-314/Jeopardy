@@ -6,14 +6,14 @@ How far is the earth from the sun?~150,000,000 km/90,000,000 miles~null
 How long is a jiffy?~The time it takes light to travel 1cm/One trillionth of a second~null
 -=Flags
 Which country is this flag from?~Spain~https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png
-Which country is this flag from?~India~https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png
-Which country is this flag from?~Iceland~https://static.wikia.nocookie.net/backpacker-travel-trivia/images/a/af/Is.png/revision/latest?cb=20171106091611
-Which country is this flag from?~Vietnam~https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png
-Which country is this flag from?~Sri Lanka~https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/1280px-Flag_of_Sri_Lanka.svg.png
+Which country is this flag from? Which country is this flag from?~India~https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png
+Which country is this flag from? Which country is this flag from? Which country is this flag from?~Iceland~https://static.wikia.nocookie.net/backpacker-travel-trivia/images/a/af/Is.png/revision/latest?cb=20171106091611
+Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? ~Vietnam~https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/1200px-Flag_of_Vietnam.svg.png
+Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from? Which country is this flag from?~Sri Lanka~https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/1280px-Flag_of_Sri_Lanka.svg.png
 -=Video Games
-What was the first video game released?~Pong~null
-Who created Minecraft?~Notch/Markus Persson~null
-In which year was the XBOX 360 released?~2005~null
+Assuming that the universe is infinite, that videogames are eternal and that there are only 4 people who are allergic to strawberries. What was the first video game released?~Pong~null
+Who created Minecraft? The game we all know and love and cherish and play sometimes~Notch/Markus Persson~null
+In which year was the XBOX 360 released? It is a very good console and much better than the ps3. However, once the xbox one and ps4 were released, it was quickly depricated, becoming one of the most previously loved, but now shit games on the planet~2005~null
 Which was the first console to feature an analogue stick?~Nintendo 64~null
 How many points do you get for clearing a Tetris in Tetris?~800~null
 -=Music & Film
