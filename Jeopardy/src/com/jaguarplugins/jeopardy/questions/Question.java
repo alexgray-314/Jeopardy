@@ -39,7 +39,7 @@ public class Question {
 			}
 		}
 		
-		formattedQuestion = seperateLines(question, 50);
+		formattedQuestion = seperateLines(question, 45);
 		
 	}
 	

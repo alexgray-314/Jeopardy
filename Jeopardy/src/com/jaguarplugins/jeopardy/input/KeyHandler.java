@@ -2,6 +2,7 @@ package com.jaguarplugins.jeopardy.input;
 
 import com.jaguarplugins.jeopardy.states.AdjustState;
 import com.jaguarplugins.jeopardy.states.BoardState;
+import com.jaguarplugins.jeopardy.states.FinalState;
 import com.jaguarplugins.jeopardy.states.QuestionState;
 import com.jaguarplugins.jeopardy.states.ResultState;
 import com.jaguarplugins.jeopardy.util.Handler;
@@ -37,6 +38,17 @@ public class KeyHandler implements EventHandler<KeyEvent> {
 			if (handler.getCurrentState() instanceof BoardState) {
 				
 				handler.setCurrentState(new AdjustState(handler.getCurrentState().getG(), handler));
+				handler.getCurrentState().render();
+				
+			}
+			
+		}
+		
+		if (e.getCode().equals(KeyCode.F)) {
+			
+			if (handler.getCurrentState() instanceof BoardState) {
+				
+				handler.setCurrentState(new FinalState(handler.getCurrentState().getG(), handler));
 				handler.getCurrentState().render();
 				
 			}

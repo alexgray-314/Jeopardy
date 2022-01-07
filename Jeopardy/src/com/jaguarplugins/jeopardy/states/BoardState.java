@@ -78,11 +78,14 @@ public class BoardState extends State {
 		g.fillText("A", handler.getHGrid(0) + x, y);
 		g.strokeRoundRect(handler.getHGrid(0) + 5*x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
 		g.fillText("S", handler.getHGrid(0) + 5*x, y);
+		g.strokeRoundRect(handler.getHGrid(0) + 26*x - bWidth/2, y-bWidth/2, bWidth, bWidth, handler.getGridHeight()/10, handler.getGridHeight()/10);
+		g.fillText("F", handler.getHGrid(0) + 26*x, y);
 		
 		g.setFont(new Font("calibri", handler.getGridWidth()/16));
 		g.setTextAlign(TextAlignment.LEFT);
 		g.fillText("Adjust scores", handler.getHGrid(0) + 1.5*x, y);
 		g.fillText("View scores", handler.getHGrid(0) + 5.5*x, y);
+		g.fillText("Final Jeopardy", handler.getHGrid(0) + 26.5*x, y);
 		
 	}
 
